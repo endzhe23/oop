@@ -6,7 +6,7 @@ export class Ball {
     if (color === "red" || color === "blue" || color === "green") {
       this.color = color;
     }
-    if (radius) {
+    if (radius > 1 && radius < 10) {
       this.radius = radius;
     }
   }
@@ -25,7 +25,9 @@ export class Ball {
   }
 
   public setRadius(radius: number): void {
-    this.radius = radius;
+    if (radius > 1 && radius < 10) {
+      this.radius = radius;
+    }
   }
 
   public getRadius(key?: string): number {
