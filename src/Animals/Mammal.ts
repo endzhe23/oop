@@ -1,8 +1,8 @@
-export class Mammal {
+export abstract class Mammal {
   private readonly _eyeColor: string = "black";
 
   constructor(color?: string) {
-    if (color === "brown"|| color === "blue") {
+    if (color === "brown"|| color === "blue" || color === "red") {
       this._eyeColor = color;
     }
   }
@@ -10,4 +10,6 @@ export class Mammal {
   get eyeColor(): string {
     return this._eyeColor;
   }
+
+  abstract voice(): string
 }

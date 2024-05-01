@@ -1,4 +1,6 @@
-export class IntSquare {
+import {Shape} from "./Shape";
+
+export class Square extends Shape {
   private _squareValue: number;
 
   set squareValue(value: number) {
@@ -11,6 +13,10 @@ export class IntSquare {
 
   private calculateSquare(value: number): number {
     return value * value;
+  }
+
+  calculateArea(side: number) {
+    this.area = side * side;
   }
 }
 

@@ -6,4 +6,8 @@ export class Dog extends Mammal {
   public bark(): void {
     return this.bark();
   }
+
+  public voice(): string {
+    return "Woof";
+  }
 }

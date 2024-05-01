@@ -6,4 +6,8 @@ export class Cat extends Mammal {
   public meow(): void {
     return this.meow();
   }
+
+  public voice(): string {
+    return "Meow";
+  }
 }
