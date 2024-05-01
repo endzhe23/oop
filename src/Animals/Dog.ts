@@ -1,7 +1,7 @@
 import {Mammal} from "./Mammal";
 
 export class Dog extends Mammal {
-  private barkFrequency: number;
+  private _barkFrequency: number;
 
   public bark(): void {
     return this.bark();
