@@ -4,7 +4,7 @@ export class Dog extends Mammal {
     private _barkFrequency: number;
 
     public bark(): void {
-        return this.bark();
+        console.log("Gaw");
     }
 
     public voice(): string {

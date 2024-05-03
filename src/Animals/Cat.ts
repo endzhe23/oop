@@ -4,7 +4,7 @@ export class Cat extends Mammal {
   private _meowFrequency: number;
 
   public meow(): void {
-    return this.meow();
+    console.log("Mrrr");
   }
 
   public voice(): string {
