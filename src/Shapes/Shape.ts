@@ -1,13 +1,9 @@
 export abstract class Shape {
-    private _area: number;
-
-    set area(area: number) {
-        this._area = area;
-    }
+    protected _area: number;
 
     get area(): number {
-        return this._area;
+        return this._area
     }
 
-    abstract calculateArea(value1: number, ...value2: number[]): void;
+    protected abstract calculateArea(value: number, ...values: number[]): number
 }

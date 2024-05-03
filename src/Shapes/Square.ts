@@ -1,22 +1,25 @@
 import {Shape} from "./Shape";
 
 export class Square extends Shape {
-  private _squareValue: number;
+    private _side: number;
 
-  set squareValue(value: number) {
-    this._squareValue = this.calculateSquare(value);
-  }
+    constructor(side: number) {
+        super();
+        this._area = this.calculateArea(side);
+        this._side = side;
+    }
 
-  get squareValue(): number {
-    return this._squareValue;
-  }
+    set side(side: number) {
+        this._area = this.calculateArea(side);
+        this._side = side
+    }
 
-  private calculateSquare(value: number): number {
-    return value * value;
-  }
+    get side(): number {
+        return this._side;
+    }
 
-  calculateArea(side: number) {
-    this.area = side * side;
-  }
+    protected calculateArea(value: number): number {
+        return value * value;
+    }
 }
 

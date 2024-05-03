@@ -8,6 +8,7 @@ export class Triangle extends Shape {
     constructor(cathet1: number, cathet2: number) {
         super();
         if (cathet1 > 0 && cathet2 > 0) {
+            this._area = this.calculateArea(cathet1, cathet2);
             this._hypotenuse = this.calculateHypotenuse(cathet1, cathet2);
             this._cathet1 = cathet1;
             this._cathet2 = cathet2;
@@ -20,6 +21,7 @@ export class Triangle extends Shape {
 
     set cathet1(cathet1: number) {
         if (cathet1 > 0) {
+            this._area = this.calculateArea(cathet1, this._cathet2);
             this._hypotenuse = this.calculateHypotenuse(cathet1, this._cathet2);
             this._cathet1 = cathet1;
         }
@@ -31,6 +33,7 @@ export class Triangle extends Shape {
 
     set cathet2(cathet2: number) {
         if (cathet2 > 0) {
+            this._area = this.calculateArea(this._cathet1, cathet2);
             this._hypotenuse = this.calculateHypotenuse(this._cathet1, cathet2);
             this._cathet2 = cathet2;
         }
@@ -44,11 +47,10 @@ export class Triangle extends Shape {
         return Math.sqrt(cathet1 * cathet1 + cathet2 * cathet2);
     }
 
-    calculateArea(cathet1: number, cathet2?: number) {
+    protected calculateArea(cathet1: number, cathet2?: number): number {
         if (cathet2 === undefined) {
-            this.area = cathet1 * this._cathet2 / 2;
-        } else {
-            this.area = cathet1 * cathet2 / 2;
+            return cathet1 * this._cathet2 / 2;
         }
+        return cathet1 * cathet2 / 2;
     }
 }

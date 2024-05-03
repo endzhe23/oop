@@ -12,7 +12,7 @@ console.log(cat)
 const tiger: Mammal = new Tiger("red");
 console.log(tiger)
 
-const animals: Mammal[] = [dog, cat, tiger];
-for (const animal of animals) {
-    console.log(animal.voice());
+const mammals: Mammal[] = [dog, cat, tiger];
+for (const mammal of mammals) {
+    console.log("Млекопитающее издает звук: " + mammal.voice());
 }
