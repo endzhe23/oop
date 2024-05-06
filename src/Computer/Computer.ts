@@ -1,32 +1,29 @@
 import {Memory} from "./Memory";
 import {Cpu} from "./Cpu";
 import {Gpu} from "./Gpu";
-import * as readline from "node:readline";
+import {Keyboard} from "./Keyboard";
 
 export abstract class Computer {
   private _cpu: Cpu;
   private _gpu: Gpu;
   private _memory: Memory;
   private _OS: string;
+  private _keyboard: Keyboard;
 
-  constructor(cpu: Cpu, gpu: Gpu, memory: Memory, OS: string) {
+  constructor(cpu: Cpu, gpu: Gpu, memory: Memory, OS: string, keyboard: Keyboard) {
     this._cpu = cpu;
     this._gpu = gpu;
     this._memory = memory;
     this._OS = OS;
+    this._keyboard = keyboard;
   }
 
-  protected askQuestion(question: string): Promise<string> {
-    return new Promise((resolve) => {
-      const rl = readline.createInterface({
-        input: process.stdin,
-        output: process.stdout
-      });
-      rl.question(question, (answer: string) => {
-        resolve(answer);
-        rl.close();
-      });
-    });
+  public get keyboard(): Keyboard {
+    return this._keyboard;
+  }
+
+  public get memory(): Memory {
+    return this._memory;
   }
 
   public set OS(OS: string) {

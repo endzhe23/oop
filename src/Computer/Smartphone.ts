@@ -14,8 +14,10 @@ export class Smartphone extends Computer {
   }
 
   public async input(): Promise<void> {
-    const question = await this.askQuestion("Enter variable: ");
-    this.output(question)
+    const keyboard = this.keyboard;
+    const value = await keyboard.enterValue("Enter variable: ");
+    this.memory.data = value;
+    this.output(value)
   }
 
   public output(value: string): void {
