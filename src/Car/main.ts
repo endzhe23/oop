@@ -9,8 +9,8 @@ console.log(car.engine.frequency)
 car.wheels.map((wheel) => console.log(wheel.model, wheel.radius))
 
 car.wheels.map((wheel) => {
-    wheel.model = "pirelli";
-    wheel.radius = 17
+  wheel.model = "pirelli";
+  wheel.radius = 17
 })
 
 car.wheels.map((wheel) => console.log(wheel.model, wheel.radius))

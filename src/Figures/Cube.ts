@@ -11,23 +11,23 @@ export class Cube {
     }
   }
 
-  set side(side: number) {
-   if (side > 5 && side < 20) {
-     this._side = side;
-   }
+  public set side(side: number) {
+    if (side > 5 && side < 20) {
+      this._side = side;
+    }
   }
 
-  get side(): number {
+  public get side(): number {
     return this._side;
   }
 
-  set color(color: string) {
+  public set color(color: string) {
     if (color === "grey" || color === "black") {
       this._color = color;
     }
   }
 
-  get color(): string {
+  public get color(): string {
     return this._color;
   }
 }

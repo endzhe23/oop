@@ -1,24 +1,24 @@
 import {Computer} from "./Computer";
 
 export class PC extends Computer {
-    public calculate(): void {
-        console.log("Calculating on PC...");
-    }
+  public calculate(): void {
+    console.log("Calculating on PC...");
+  }
 
-    async input(): Promise<void> {
-        const question = await this.askQuestion("Enter variable: ");
-        this.output(question)
-    }
+  public async input(): Promise<void> {
+    const question = await this.askQuestion("Enter variable: ");
+    this.output(question)
+  }
 
-    off(): void {
-        console.log("PC off");
-    }
+  public off(): void {
+    console.log("PC off");
+  }
 
-    on(): void {
-        console.log("PC with operation system " + this._OS + " is loading...");
-    }
+  public on(): void {
+    console.log("PC with operation system " + this.OS + " is loading...");
+  }
 
-    output(value: string): void {
-        console.log("This variable is entered on PC: " + value);
-    }
+  public output(value: string): void {
+    console.log("This variable is entered on PC: " + value);
+  }
 }

@@ -11,21 +11,21 @@ export class Ball {
     }
   }
 
-  get color(): string {
+  public get color(): string {
     return this._color;
   }
 
-  set color(color: string) {
+  public set color(color: string) {
     if (color === "red" || color === "blue" || color === "green" || color === "yellow") {
       this._color = color;
     }
   }
 
-  get radius(): number {
+  public get radius(): number {
     return this._radius;
   }
 
-  set radius(radius: number) {
+  public set radius(radius: number) {
     if (radius > 1 && radius < 10) {
       this._radius = radius;
     }

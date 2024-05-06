@@ -18,5 +18,5 @@ console.log(tiger)
 
 const mammals: Mammal[] = [dog1, cat, tiger];
 for (const mammal of mammals) {
-    console.log("Млекопитающее издает звук: " + mammal.voice());
+  console.log("Млекопитающее издает звук: " + mammal.voice());
 }

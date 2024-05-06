@@ -1,23 +1,16 @@
 export class Calculator {
-    count: number = 0;
-    static staticCount: number = 0;
-    public add(x: number, y: number): number;
-    public add(x: string, y: string): string;
-    public add(x: string, y: number): string;
-    public add(x: number, y: string): string;
-    public add(x: any, y: any): any {
-        return x + y;
-    }
+  private _count: number = 0;
+  public static staticCount: number = 0;
 
-    method1() {
-        let count: number = 0;
-        count = 1;
-        this.count = 1
-    }
+  public add(x: number, y: number): number {
+    return x + y;
+  }
 
-    method2() {
-        let count: number = 0;
-        count = 1;
-        this.count = 1
-    }
+  public method1() {
+    this._count = 1
+  }
+
+  public method2() {
+    this._count = 1
+  }
 }
