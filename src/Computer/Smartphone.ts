@@ -13,13 +13,6 @@ export class Smartphone extends Computer {
     console.log("Smartphone off");
   }
 
-  public async input(): Promise<void> {
-    const keyboard = this.keyboard;
-    const value = await keyboard.enterValue("Enter variable: ");
-    this.memory.data = value;
-    this.output(value)
-  }
-
   public output(value: string): void {
     console.log("This variable is entered on Smartphone: " + value);
   }

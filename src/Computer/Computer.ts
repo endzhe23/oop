@@ -1,25 +1,19 @@
 import {Memory} from "./Memory";
 import {Cpu} from "./Cpu";
 import {Gpu} from "./Gpu";
-import {Keyboard} from "./Keyboard";
+import * as readline from "node:readline";
 
 export abstract class Computer {
   private _cpu: Cpu;
   private _gpu: Gpu;
   private _memory: Memory;
   private _OS: string;
-  private _keyboard: Keyboard;
 
-  constructor(cpu: Cpu, gpu: Gpu, memory: Memory, OS: string, keyboard: Keyboard) {
+  constructor(cpu: Cpu, gpu: Gpu, memory: Memory, OS: string) {
     this._cpu = cpu;
     this._gpu = gpu;
     this._memory = memory;
     this._OS = OS;
-    this._keyboard = keyboard;
-  }
-
-  public get keyboard(): Keyboard {
-    return this._keyboard;
   }
 
   public get memory(): Memory {
@@ -34,13 +28,30 @@ export abstract class Computer {
     return this._OS;
   }
 
+  private enterValue(): Promise<string> {
+    return new Promise((resolve) => {
+      const rl = readline.createInterface({
+        input: process.stdin,
+        output: process.stdout
+      });
+      rl.question("Enter variable: ", (answer: string) => {
+        resolve(answer);
+        rl.close();
+      });
+    });
+  }
+
   public abstract calculate(): void;
 
   public abstract on(): void;
 
   public abstract off(): void;
 
-  public abstract input(): void;
+  public async input(): Promise<void> {
+    const value = await this.enterValue();
+    this.memory.data = value;
+    this.output(value)
+  }
 
   protected abstract output(value: string): void;
 }

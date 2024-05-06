@@ -5,13 +5,6 @@ export class Laptop extends Computer {
     console.log("Calculating on Laptop...");
   }
 
-  public async input(): Promise<void> {
-    const keyboard = this.keyboard;
-    const value = await keyboard.enterValue("Enter variable: ");
-    this.memory.data = value;
-    this.output(value)
-  }
-
   public off(): void {
     console.log("Laptop off");
   }
