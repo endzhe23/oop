@@ -13,6 +13,18 @@ export class Firniture {
         this._width = width;
         this._depth = depth;
         this._color = color;
+        if (height > 1 && height < 10) {
+            this._height = height;
+        }
+        if (width > 1 && width < 10) {
+            this._width = width;
+        }
+        if (depth > 1 && depth < 10) {
+            this._depth= depth;
+        }
+        if (brand.length > 0)   {
+            this._brand = brand;
+        }
     }
 
     public get brand(): string {
@@ -20,7 +32,9 @@ export class Firniture {
     }
 
     public set brand(brand: string) {
-        this._brand = brand;
+        if (brand.length > 0) {
+            this._brand = brand;
+        }
     }
 
     public get material(): string {
@@ -31,10 +45,20 @@ export class Firniture {
         this._material = material;
     }
 
+    public get color(): string {
+        return this._color;
+    }
+
+    public set color(color: string) {
+        this._color = color;
+    }
+
+
+
     public calculateDimensions(): number {
-        const height = this._height/100;
-        const width = this._width/100;
-        const depth = this._depth/100;
+        const height = this._height / 100;
+        const width = this._width / 100;
+        const depth = this._depth / 100;
         return height * width * depth;
     }
 }

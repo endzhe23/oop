@@ -6,7 +6,7 @@ export class Calculator {
     return x + y;
   }
 
-  public method1() {
+   public method1() {
     this._count = 1
   }
 

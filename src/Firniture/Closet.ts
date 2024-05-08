@@ -13,5 +13,4 @@ export class Closet extends Firniture{
     this._rodCount = rodCount;
     this._boxCount = boxCount;
   }
-
 }
