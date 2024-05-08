@@ -10,9 +10,17 @@ export class Closet extends Furniture{
 
   constructor(brand: string, material: Material | string, height: number, width: number, depth: number, color: Color | string, doorsCount: number, shelfCount: number, rodCount: number, boxCount: number) {
     super(brand, material, height, width, depth, color);
-    this._doorsCount = doorsCount;
-    this._shelfCount = shelfCount;
-    this._rodCount = rodCount;
-    this._boxCount = boxCount;
+    if (doorsCount > 0) {
+      this._doorsCount = doorsCount;
+    }
+    if (shelfCount >= 0) {
+      this._shelfCount = shelfCount;
+    }
+    if (rodCount >= 0) {
+      this._rodCount = rodCount;
+    }
+    if (boxCount >= 0) {
+      this._boxCount = boxCount;
+    }
   }
 }
