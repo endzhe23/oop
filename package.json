@@ -8,7 +8,7 @@
     "start_calculator": "npm run lint_tsc && node dist/Calculator/main.js",
     "start_car": "npm run lint_tsc && node dist/Car/main.js",
     "start_figures": "npm run lint_tsc && node dist/Figures/main.js",
-    "start_firniture": "npm run lint_tsc && node dist/Firniture/main.js",
+    "start_furniture": "npm run lint_tsc && node dist/Furniture/main.js",
     "lint_tsc": "eslint . && tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
