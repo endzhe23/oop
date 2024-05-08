@@ -12,5 +12,14 @@ export class Nightstand extends Furniture {
         this._doorsCount = doorsCount;
         this._shelfCount = shelfCount;
         this._boxCount = boxCount;
+        if (doorsCount > 0) {
+            this._doorsCount = doorsCount;
+        }
+        if (shelfCount >= 0) {
+            this._shelfCount = shelfCount;
+        }
+        if (boxCount >= 0) {
+            this._boxCount = boxCount;
+        }
     }
 }
