@@ -11,11 +11,11 @@ export class Furniture {
 
 
     constructor(brand: string, material: Material | string, height: number, width: number, depth: number, color: Color | string) {
-        if (!this.isValidMaterial(material)) {
+        if (!this.isValidValue(material, Material)) {
             throw new Error("Недопустимое значение материала шкафа");
         }
         this._material = material.toLowerCase();
-        if (!this.isValidColor(color)) {
+        if (!this.isValidValue(color, Color)) {
             throw new Error("Недопустимое значение цвета шкафа");
         }
         this._color = color.toLowerCase();
@@ -43,8 +43,9 @@ export class Furniture {
 
     public set brand(brand: string) {
         if (brand.length === 0) {
-            this._brand = brand;
+            throw new Error("Недопустимое значение длины названия шкафа");
         }
+        this._brand = brand;
     }
 
     public get material(): Material | string {
@@ -52,7 +53,7 @@ export class Furniture {
     }
 
     public set material(material: Material | string) {
-        if (!this.isValidMaterial(material)) {
+        if (!this.isValidValue(material, Material)) {
             throw new Error("Недопустимое значение материала шкафа");
         }
         this._material = material.toLowerCase();
@@ -63,7 +64,7 @@ export class Furniture {
     }
 
     public set color(color: Color | string) {
-        if (!this.isValidColor(color)) {
+        if (!this.isValidValue(color, Color)) {
             throw new Error("Недопустимое значение цвета шкафа");
         }
         this._color = color.toLowerCase();
@@ -77,19 +78,11 @@ export class Furniture {
         return height * width * depth;
     }
 
-    private isValidColor(color: Color | string): boolean {
-        if (typeof color === "string") {
-            return Object.values(Color).includes(color.toLowerCase() as Color);
+    private isValidValue<T>(value: T | string, enumObject: T): boolean {
+        if (typeof value === "string") {
+            return Object.values(enumObject).includes(value.toLowerCase() as T);
         } else {
-            return Object.values(Color).includes(color)
-        }
-    }
-
-    private isValidMaterial(material: Material | string): boolean {
-        if (typeof material === "string") {
-            return Object.values(Material).includes(material.toLowerCase() as Material);
-        } else {
-            return Object.values(Material).includes(material);
+            return Object.values(enumObject).includes(value)
         }
     }
 }

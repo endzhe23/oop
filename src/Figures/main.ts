@@ -1,16 +1,19 @@
 import {Ball} from "./Ball";
 import {Cube} from "./Cube";
+import {CubeColor} from "./CubeColor";
+import {BallColor} from "./BallColor";
 
-const cube = new Cube(20, "red");
-console.log(cube.color, cube.side);
+const cube = new Cube(20, CubeColor.BLACK);
+console.log(cube.color, cube.side, cube.volume);
 
-const ball1: Ball = new Ball(20, "red");
-const ball2: Ball = new Ball(30, "blue",);
-const ball3: Ball = new Ball(50, "green");
-const ball4: Ball = new Ball(10);
-const ball5: Ball = new Ball();
-ball1.color = "sdfgsdfg";
-ball1.radius = 10;
+const ball1: Ball = new Ball(5, BallColor.YELLOW);
+const ball2: Ball = new Ball(6, BallColor.RED);
+const ball3: Ball = new Ball(3, BallColor.BROWN);
+const ball4: Ball = new Ball(2, BallColor.BLUE);
+const ball5: Ball = new Ball(4, BallColor.BROWN);
+ball1.color = BallColor.BLUE;
+ball1.radius = 5;
+console.log(ball1.radius, ball1.color, ball1.volume);
 
 const balls: Ball[] = [ball1, ball2, ball3, ball4, ball5];
 

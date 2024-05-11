@@ -1,9 +1,11 @@
-export abstract class Mammal {
-  private readonly _eyeColor: string;
+import {EyesColor} from "./EyesColor";
 
-  constructor(color?: string) {
+export abstract class Mammal {
+  private readonly _eyeColor: EyesColor | string;
+
+  constructor(color?: EyesColor | string) {
     this._eyeColor = "black"
-    if (color === "brown" || color === "blue" || color === "red") {
+    if (this.isValidValue(color, EyesColor)) {
       this._eyeColor = color;
     }
   }
@@ -13,4 +15,12 @@ export abstract class Mammal {
   }
 
   public abstract voice(): string
+
+  private isValidValue<T>(value: T | string, enumObject: T): boolean {
+    if (typeof value === "string") {
+      return Object.values(enumObject).includes(value.toLowerCase() as T);
+    } else {
+      return Object.values(enumObject).includes(value)
+    }
+  }
 }
